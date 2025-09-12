@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIVE-CHAT ROOM</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'chat/style.css' %}?v=2">
+</head>
+<body>
+<div class="container">
+    <h1>LIVE-CHAT ROOM</h1>
+    <p>ログイン中: {{ request.user.username }}
+        <a href="{% url 'chat:logout' %}" class="btn btn-logout">ログアウト</a>
+        <a href="{% url 'chat:delete_account' %}" class="btn btn-delete">アカウント削除</a>
+    </p>
+
+    <p>現在のオンラインユーザー数: {{ online_count }} 人</p>
+
+    <div id="messages">
+        {% for message in messages %}
+            <div class="message {% if message.user == request.user %}self{% else %}other{% endif %}">
+                <div class="bubble">
+                    <strong>{{ message.user.username }}</strong><br>
+                    {{ message.content }}
+                    <div class="timestamp">
+                        {{ message.timestamp|date:"Y/m/d H:i" }}
+                        {% if message.user == request.user %}
+                            <a href="{% url 'chat:delete_message' message.id %}" 
+                               class="delete-btn"
+                               onclick="return confirm('このメッセージを削除しますか？');">削除</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.content }}
+        <button type="submit">送信</button>
+    </form>
+</div>
+<script>
+    function scrollToBottom() {
+        var messages = document.getElementById("messages");
+        messages.scrollTop = messages.scrollHeight;
+    }
+
+    // ページ読み込み時にスクロール
+    window.onload = scrollToBottom;
+
+    // フォーム送信時にスクロール
+    document.querySelector("form").addEventListener("submit", function() {
+        setTimeout(scrollToBottom, 100); // 少し待ってからスクロール
+    });
+</script>
+</body>
+</html>

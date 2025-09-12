@@ -1,0 +1,293 @@
+/* メインフォーム */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    height: 90vh;
+    margin: 50px auto;
+    background-image: url("images/modern-purple-and-pink-background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    color: #ffffff;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+    background-image: url("images/modern-purple-and-pink-background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+p {
+    margin: 0;
+    color: #ffffff;
+}
+
+/* 共通ボタン */
+.btn {
+    display: inline-block;
+    padding: 4px 16px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+/* ログアウトボタン */
+.btn-logout {
+    background-color: #41b6e0;
+    color: #fff;
+}
+
+.btn-logout:hover {
+    background-color: #366ec2;
+    transform: scale(1.05);
+}
+
+/* アカウント削除ボタン */
+.btn-delete {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.btn-delete:hover {
+    background-color: #a71d2a;
+    transform: scale(1.05);
+}
+
+/* 削除確定ボタン */
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.btn-danger:hover {
+    background-color: #a71d2a;
+    transform: scale(1.05);
+}
+
+/* キャンセルボタン */
+.btn-cancel {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-left: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #6c757d;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.btn-cancel:hover {
+    background-color: #5a6268;
+    transform: scale(1.05);
+}
+
+/* チャットエリア */
+#messages {
+    flex: 1;
+    max-height: 500px;
+    overflow-y: scroll;
+    padding: 10px;
+    background-image: url("images/modern-purple-and-pink-background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+}
+
+/* メッセージ共通 */
+.message {
+    display: flex;
+    margin: 8px 0;
+}
+
+/* 他人のメッセージ（左側） */
+.message.other {
+    justify-content: flex-start;
+}
+
+.message.other .bubble {
+    background-color: #ffffff;
+    color: #333;
+    border-radius: 10px 10px 10px 0;
+}
+
+/* 自分のメッセージ（右側） */
+.message.self {
+    justify-content: flex-end;
+}
+
+.message.self .bubble {
+    background-color: #dcf8c6;
+    color: #333;
+    border-radius: 10px 10px 0 10px;
+}
+
+/* 吹き出し */
+.bubble {
+    max-width: 70%;
+    padding: 10px;
+    position: relative;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    word-wrap: break-word;
+}
+
+/* タイムスタンプ */
+.timestamp {
+    font-size: 0.75em;
+    color: #777;
+    margin-top: 4px;
+    text-align: right;
+}
+
+/* 削除ボタン */
+.delete-btn {
+    display: inline-block;
+    font-size: 0.8em;
+    color: #ff4d4d;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.delete-btn:hover {
+    text-decoration: underline;
+}
+
+/* フォーム */
+form {
+    margin-top: 15px;
+    display: flex;
+}
+
+textarea {
+    width: 80%;
+    height: 40px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: none;
+    font-size: 14px;
+}
+
+/* 送信ボタン */
+button {
+    width: 20%;
+    padding: 8px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* サインアップ・ログインフォーム */
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.signup-form label {
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #ffffff;
+}
+
+.signup-form input {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* 注意事項のテキスト */
+.notice-text {
+    font-size: 0.85em;
+    color: #ffffff;
+    margin-top: -5px;
+    margin-bottom: 10px;
+}
+
+/* 登録ボタン */
+.signup-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #41b6e0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.signup-form button:hover {
+    background-color: #366ec2;
+}
+
+/* サインアップ/ログイン切り替えボタン */
+.switch-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-top: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #43e980;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+
+    width: auto;
+    max-width: 200px;
+    text-align: center;
+}
+
+.switch-btn:hover {
+    background-color: #42b656;
+    transform: scale(1.05);
+}
+
+/* エラーメッセージ */
+.error-text {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}

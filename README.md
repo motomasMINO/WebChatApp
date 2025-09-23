@@ -29,8 +29,8 @@
 ## 🚀 セットアップ手順
 1. リポジトリをクローン
    ```bash
-   git clone <リポジトリURL>
-   cd chat-app
+   git clone https://github.com/motomasMINO/WebChatApp.git
+   cd WebChatApp
    ```
 
 2. 仮想環境を作成・有効化

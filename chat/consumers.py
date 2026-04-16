@@ -1,6 +1,7 @@
 import json
 from channels.generic.websocket import AsyncWebsocketConsumer
 
+# WebSocketを通じてリアルタイムでチャットメッセージをやり取りするためのコンシューマー
 class ChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         # 全員同じ "chat" ルームに入れる
@@ -14,6 +15,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
         await self.accept()
 
+    # WebSocketが切断されたときの処理
     async def disconnect(self, close_code):
         # グループから削除
         await self.channel_layer.group_discard(
